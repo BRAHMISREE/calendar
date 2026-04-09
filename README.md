@@ -1,33 +1,42 @@
 # Interactive Calendar Component
 
-A responsive, interactive calendar built with React. Designed to feel like a physical wall calendar — hero image up top, clean date grid, and a notes section that actually saves your stuff.
+A responsive and interactive calendar component built with React. The design is inspired by a physical wall calendar, combining a visual layout with practical functionality such as date range selection and note-taking.
 
 ## Features
 
-- **Wall calendar layout** — hero photo that changes every month, spiral ring strip at the top
-- **Date range selection** — click a start date, click an end date, days in between get highlighted
-- **Notes** — write anything for the month, auto-saved to localStorage so it survives a refresh
-- **Responsive** — side-by-side on desktop, stacks vertically on mobile
+* **Wall Calendar Layout**
+  Includes a hero image section and a structured date grid to mimic a physical calendar layout.
+
+* **Date Range Selection**
+  Users can select a start date and an end date. The selected range is clearly highlighted, with intuitive handling of reverse selections.
+
+* **Notes Section**
+  Users can write notes for each month. Notes are automatically saved using localStorage and persist across page reloads.
+
+* **Responsive Design**
+
+  * Desktop: Side-by-side layout for calendar and notes
+  * Mobile: Vertically stacked layout for better usability
 
 ## Tech Stack
 
-- React 18 (Create React App)
-- CSS Modules for styling
-- localStorage for note persistence
+* React 18 (Create React App)
+* CSS Modules for styling
+* localStorage for client-side persistence
 
 ## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── Calendar.jsx          # main component, holds all state
+│   ├── Calendar.jsx
 │   ├── Calendar.module.css
-│   ├── DateCell.jsx          # single day cell, handles range visual states
+│   ├── DateCell.jsx
 │   ├── DateCell.module.css
-│   ├── Notes.jsx             # notes textarea + range info panel
+│   ├── Notes.jsx
 │   └── Notes.module.css
 ├── utils/
-│   └── dateUtils.js          # pure helpers — date math, formatting, storage keys
+│   └── dateUtils.js
 ├── App.js
 ├── App.css
 ├── index.js
@@ -36,6 +45,8 @@ src/
 
 ## Getting Started
 
+Clone the repository and install dependencies:
+
 ```bash
 git clone https://github.com/your-username/calendar.git
 cd calendar
@@ -43,25 +54,42 @@ npm install
 npm start
 ```
 
-Opens at `http://localhost:3000`
+The application will run at:
 
-## How It Works
+```
+http://localhost:3000
+```
 
-**Calendar grid** — built as a 42-cell array (6 rows × 7 cols, Monday-first). Leading and trailing cells show greyed-out days from adjacent months.
+## Implementation Details
 
-**Date range selection** — managed with two state variables (`rangeStart`, `rangeEnd`) and a `pickingEnd` boolean flag. First click sets the start, second click sets the end. If you click backwards it swaps them automatically.
+* **Calendar Grid**
+  The calendar is rendered as a fixed 6 × 7 grid (42 cells). This ensures consistent layout across months, including leading and trailing days from adjacent months.
 
-**Notes** — each month gets its own localStorage key (`cal_notes_YYYY_M`). Notes reload whenever you navigate to a different month.
+* **Date Range Selection Logic**
+  Managed using `rangeStart`, `rangeEnd`, and a control flag for selection flow. If a user selects an end date earlier than the start date, the values are automatically adjusted.
+
+* **Notes Persistence**
+  Notes are stored using localStorage with a month-specific key format (`cal_notes_YYYY_M`), ensuring data is scoped per month.
 
 ## Deployment
 
-Works out of the box with Vercel or Netlify — just connect the repo and deploy.
-Vercel Link: 
+The project is deployed using GitHub Pages and can be accessed here:
+
+https://your-username.github.io/calendar
+
+The live version demonstrates all core features including date selection, notes persistence, and responsive layout.
 
 ## Demo
 
-Short screen recording included in the submission showing:
-- Navigating between months
-- Selecting a date range
-- Writing and persisting notes
-- Layout on mobile vs desktop
+A short screen recording is included with the submission, demonstrating:
+
+* Month navigation
+* Date range selection
+* Notes functionality
+* Responsive behavior across screen sizes
+
+Video link: https://drive.google.com/file/d/1ffVPv0w3N3YCK3meWduGAUoLx48DQZx-/view?usp=sharing
+
+## Conclusion
+
+This project demonstrates frontend development skills including component design, state management, responsive UI implementation, and attention to user experience.
