@@ -75,7 +75,7 @@ http://localhost:3000
 
 The project is deployed using GitHub Pages and can be accessed here:
 
-https://your-username.github.io/calendar
+https://BRAHMISREE.github.io/calendar
 
 The live version demonstrates all core features including date selection, notes persistence, and responsive layout.
 
