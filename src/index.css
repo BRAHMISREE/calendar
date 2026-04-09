@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,13 +7,11 @@
 body {
   background: #020617;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-::-webkit-scrollbar { width: 6px; }
+/* scrollbar matches the dark theme */
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #0f172a; }
-::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #f97316; }
-
-textarea { caret-color: #f97316; }
-button { font-family: inherit; }

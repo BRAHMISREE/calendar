@@ -1,0 +1,91 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  transition: background 0.12s, color 0.12s;
+  color: #cbd5e1;
+}
+
+.cell:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #f97316;
+}
+
+.otherMonth {
+  color: #1e293b;
+  pointer-events: none;
+  cursor: default;
+}
+
+.otherMonth:hover {
+  background: transparent;
+  color: #1e293b;
+}
+
+.weekend {
+  color: #94a3b8;
+}
+
+.today {
+  color: #f97316;
+  font-weight: 700;
+}
+
+/* little dot under today's number */
+.today::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f97316;
+}
+
+.rangeStart,
+.rangeEnd {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+}
+
+/* flatten the side facing inward when range has both start+end */
+.rangeStart:not(.rangeEnd) {
+  border-radius: 50% 0 0 50%;
+}
+
+.rangeEnd:not(.rangeStart) {
+  border-radius: 0 50% 50% 0;
+}
+
+.rangeStart:hover,
+.rangeEnd:hover {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.inRange {
+  background: rgba(249, 115, 22, 0.1);
+  border-radius: 0;
+  color: #fb923c;
+}
+
+.inRange:hover {
+  background: rgba(249, 115, 22, 0.18);
+  color: #fb923c;
+}
+
+/* no dot when it's selected */
+.rangeStart::after,
+.rangeEnd::after {
+  display: none;
+}

@@ -1,0 +1,172 @@
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #1e293b;
+}
+
+@media (max-width: 600px) {
+  .bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+.notesPanel {
+  padding: 18px 20px;
+  border-right: 1px solid #1e293b;
+}
+
+@media (max-width: 600px) {
+  .notesPanel {
+    border-right: none;
+    border-bottom: 1px solid #1e293b;
+  }
+}
+
+.rangePanel {
+  padding: 18px 20px;
+}
+
+.panelLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #334155;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  color: #334155;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.1s;
+}
+
+.clearBtn:hover {
+  color: #f97316;
+}
+
+.textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #cbd5e1;
+  font-family: 'Courier New', monospace;
+  resize: none;
+  outline: none;
+  line-height: 1.6;
+  min-height: 85px;
+  box-sizing: border-box;
+  caret-color: #f97316;
+  transition: border-color 0.15s;
+}
+
+.textarea:focus {
+  border-color: rgba(249, 115, 22, 0.35);
+}
+
+.textarea::placeholder {
+  color: #1e293b;
+}
+
+.charCount {
+  font-size: 11px;
+  color: #1e293b;
+  margin-top: 5px;
+}
+
+/* range display stuff */
+.emptyHint {
+  font-size: 13px;
+  color: #1e293b;
+  margin-top: 8px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(249, 115, 22, 0.1);
+  color: #f97316;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.pulseDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f97316;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.startDateText {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+}
+
+.subText {
+  font-size: 12px;
+  color: #334155;
+}
+
+.bigNumber {
+  font-size: 42px;
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.daysLabel {
+  font-size: 12px;
+  color: #475569;
+  margin-bottom: 12px;
+}
+
+.dateList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dateListItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f97316;
+  flex-shrink: 0;
+}

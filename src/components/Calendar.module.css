@@ -1,0 +1,249 @@
+.page {
+  min-height: 100vh;
+  background: #020617;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+  /* subtle warm glow in bg */
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(249, 115, 22, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 80%, rgba(249, 115, 22, 0.04) 0%, transparent 50%);
+}
+
+.inner {
+  width: 100%;
+  max-width: 780px;
+}
+
+/* top bar with logo + action buttons */
+.topBar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: #f1f5f9;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.logo span {
+  color: #f97316;
+}
+
+.logoSub {
+  font-size: 11px;
+  color: #334155;
+  margin-top: 3px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ghostBtn {
+  background: none;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 5px 13px;
+  font-size: 12px;
+  color: #475569;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.ghostBtn:hover {
+  border-color: rgba(249, 115, 22, 0.4);
+  color: #f97316;
+}
+
+/* the main calendar card */
+.card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* spiral binding strip at top */
+.rings {
+  height: 14px;
+  background: #070f1f;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 14px;
+}
+
+.ringDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid #1e293b;
+  background: #0f172a;
+  flex-shrink: 0;
+}
+
+/* hero image + grid side by side */
+.calBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 600px) {
+  .calBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* left side — photo */
+.hero {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+  background: #0a1628;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 170px;
+  }
+}
+
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(2, 6, 23, 0.05) 0%, rgba(2, 6, 23, 0.72) 100%);
+}
+
+.heroText {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 20px;
+}
+
+.heroYear {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f97316;
+  margin-bottom: 3px;
+}
+
+.heroMonth {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* right side — nav + grid */
+.gridPanel {
+  border-left: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .gridPanel {
+    border-left: none;
+    border-top: 1px solid #1e293b;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.navBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  border: 1px solid #1e293b;
+  background: none;
+  color: #475569;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.navBtn:hover {
+  border-color: rgba(249, 115, 22, 0.4);
+  color: #f97316;
+}
+
+.navLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 0.04em;
+}
+
+.gridWrap {
+  padding: 10px 12px 14px;
+  flex: 1;
+}
+
+.dayHeaders {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 4px;
+}
+
+.dayHdr {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1e293b;
+  padding: 3px 0;
+}
+
+.dayHdr.weekend {
+  color: #f97316;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+
+.hint {
+  text-align: center;
+  font-size: 11px;
+  color: #1e293b;
+  margin-top: 14px;
+  letter-spacing: 0.03em;
+}

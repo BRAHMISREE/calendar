@@ -1,11 +1,13 @@
+// month names used in hero + nav label
 export const MONTHS = [
   "January","February","March","April","May","June",
-  "July","August","September","October","November","December"
+  "July","August","September","October","November","December",
 ];
 
-export const DAYS_SHORT = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+export const DAY_LABELS = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 
-export const MONTH_IMAGES = [
+// one photo per month, swaps out the hero image
+export const HERO_IMAGES = [
   "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=800&q=80",
   "https://images.unsplash.com/photo-1518908336710-4e1cf821d3d1?w=800&q=80",
   "https://images.unsplash.com/photo-1490750967868-88df5691cc43?w=800&q=80",
@@ -24,34 +26,39 @@ export function getDaysInMonth(year, month) {
   return new Date(year, month + 1, 0).getDate();
 }
 
-export function getFirstDayOfMonth(year, month) {
-  const day = new Date(year, month, 1).getDay();
-  return day === 0 ? 6 : day - 1;
+// monday-first grid, so sunday (0) wraps to index 6
+export function getMonthStartOffset(year, month) {
+  const raw = new Date(year, month, 1).getDay();
+  return raw === 0 ? 6 : raw - 1;
 }
 
 export function isSameDay(a, b) {
   if (!a || !b) return false;
-  return a.getFullYear() === b.getFullYear() &&
+  return (
+    a.getFullYear() === b.getFullYear() &&
     a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate();
+    a.getDate() === b.getDate()
+  );
 }
 
-export function isInRange(date, start, end) {
+export function isBetween(date, start, end) {
   if (!start || !end) return false;
-  const t = date.getTime();
-  return t > start.getTime() && t < end.getTime();
+  return date > start && date < end;
 }
 
-export function formatDate(date) {
+export function prettyDate(date) {
   if (!date) return "";
-  return date.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  return date.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 }
 
-export function daysBetween(start, end) {
-  if (!start || !end) return 0;
-  return Math.round((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+export function countDays(start, end) {
+  return Math.round((end - start) / 86400000);
 }
 
-export function noteStorageKey(year, month) {
+export function getNotesKey(year, month) {
   return `cal_notes_${year}_${month}`;
 }
